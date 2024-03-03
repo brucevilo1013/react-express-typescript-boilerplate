@@ -1,11 +1,11 @@
 {
   "name": "react-express-typescript-boilerplate",
-  "module": "index.ts",
-  "type": "module",
-  "devDependencies": {
-    "@types/bun": "latest"
-  },
-  "peerDependencies": {
-    "typescript": "^5.0.0"
+  "scripts": {
+    "setup:client": "cd client & bun install",
+    "setup:server": "cd server & bun install",
+    "setup": "bun i -g concurrently & concurrently \"npm run setup:client\" \"npm run setup:server\"",
+    "dev:client": "cd client & npm run dev",
+    "dev:server": "cd server & npm run serve",
+    "dev": "concurrently \"npm run dev:client\" \"npm run dev:server\""
   }
 }

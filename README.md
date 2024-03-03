@@ -1,5 +1,13 @@
 # react-express-typescript-boilerplate
-### Boilerplate with Typescript, React.js, Express.js, MongoDB
+### How to set up, run
+- Install dependencies
+
+  ```npm run setup```
+- Run dev server
+
+  ```npm run dev```
+
+### Used technologies
 
 - Frontend
   
@@ -7,7 +15,7 @@
 
 - Backend
   
-  Express.js, Typescript
+  Express.js, Typescript, Nodemon
 
 - Database
 
@@ -23,4 +31,5 @@
 
 
 ### References
-# [Create React, typescript project using Vite, Bun](https://blog.logrocket.com/getting-started-bun-react/)
+#### [Create react, typescript project using Vite, Bun](https://blog.logrocket.com/getting-started-bun-react/)
+#### [Create express, typescript sever](https://github.com/w3tecch/express-typescript-boilerplate)
