@@ -19,7 +19,7 @@
 
 - Database
 
-  MongoDB, Mongoose
+  Postgresql, Sequelize
 
 - Tools
 
