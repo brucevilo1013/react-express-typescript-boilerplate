@@ -15,7 +15,7 @@
 
 - Backend
   
-  Express.js, Typescript, Nodemon
+  Express.js, Typescript
 
 - Database
 
