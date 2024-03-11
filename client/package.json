@@ -7,7 +7,9 @@
     "dev": "bunx --bun vite",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.25.0",
@@ -16,7 +18,17 @@
     "tailwindcss": "^3.4.1"
   },
   "devDependencies": {
+    "@chromatic-com/storybook": "^1.2.17",
     "@playwright/test": "^1.42.1",
+    "@storybook/addon-essentials": "^8.0.0",
+    "@storybook/addon-interactions": "^8.0.0",
+    "@storybook/addon-links": "^8.0.0",
+    "@storybook/addon-onboarding": "^8.0.0",
+    "@storybook/blocks": "^8.0.0",
+    "@storybook/builder-vite": "^8.0.0",
+    "@storybook/react": "^8.0.0",
+    "@storybook/react-vite": "^8.0.0",
+    "@storybook/test": "^8.0.0",
     "@types/bun": "latest",
     "@types/node": "^20.11.25",
     "@types/react": "^18.2.56",
@@ -27,7 +39,9 @@
     "eslint": "^8.56.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
+    "eslint-plugin-storybook": "^0.8.0",
     "jest": "^29.7.0",
+    "storybook": "^8.0.0",
     "typescript": "^5.2.2",
     "vite": "^5.1.4"
   },
