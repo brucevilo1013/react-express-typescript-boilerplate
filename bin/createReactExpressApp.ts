@@ -33,15 +33,6 @@ async function hasYarn() {
     }
 }
 
-async function hasBun() {
-    try {
-        execSync('bun --version', {stdio: 'ignore'});
-        return true;
-    } catch {
-        return false;
-    }
-}
-
 // Validate arguments
 if (process.argv.length < 3) {
     console.log('Please specify the target project directory.');
@@ -82,12 +73,9 @@ async function setup() {
         process.chdir(appPath);
 
         // Install dependencies
-        const useBun = await hasBun();
         const useYarn = await hasYarn();
         console.log('Installing dependencies...');
-        if (useBun) {
-            await runCmd('bun run setup');
-        } else if (useYarn) {
+        if (useYarn) {
             await runCmd('yarn run setup');
         } else {
             await runCmd('npm run setup');
@@ -95,7 +83,8 @@ async function setup() {
         console.log('Dependencies installed successfully.');
 
         // Copy environment variables
-        fs.copyFileSync(path.join(appPath, '.env.example'), path.join(appPath, '.env'));
+        fs.copyFileSync(path.join(appPath, 'client', '.env.example'), path.join(appPath, 'client', '.env'));
+        fs.copyFileSync(path.join(appPath, 'server', '.env.example'), path.join(appPath, 'server','.env'));
         console.log('Environment files copied.');
 
         // Delete .git folder
@@ -105,7 +94,7 @@ async function setup() {
         fs.unlinkSync(path.join(appPath, 'CHANGELOG.md'));
         fs.unlinkSync(path.join(appPath, 'CODE_OF_CONDUCT.md'));
         fs.unlinkSync(path.join(appPath, 'CONTRIBUTING.md'));
-        fs.unlinkSync(path.join(appPath, 'bin', 'createNodejsApp.js'));
+        fs.unlinkSync(path.join(appPath, 'bin', 'createReactExpressApp.ts'));
         fs.rmdirSync(path.join(appPath, 'bin'));
         if (!useYarn) {
             fs.unlinkSync(path.join(appPath, 'yarn.lock'));
@@ -118,7 +107,7 @@ async function setup() {
         console.log(`    cd ${folderName}`);
         console.log(useYarn ? '    yarn dev' : '    npm run dev');
         console.log();
-        console.log('Enjoy your production-ready Node.js app, which already supports a large number of ready-made features!');
+        console.log('Enjoy your production-ready React/Express app, which already supports a large number of ready-made features!');
         console.log('Check README.md for more info.');
     } catch (error) {
         console.log(error);

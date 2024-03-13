@@ -1,11 +1,32 @@
 {
-  "name": "react-express-typescript-boilerplate",
+  "name": "create-vite-react-express",
+  "version": "0.0.2",
   "scripts": {
     "setup:client": "cd client & bun install",
     "setup:server": "cd server & bun install",
     "setup": "bun i -g concurrently & concurrently \"npm run setup:client\" \"npm run setup:server\"",
     "dev:client": "cd client & npm run dev",
     "dev:server": "cd server & npm run serve",
-    "dev": "concurrently \"npm run dev:client\" \"npm run dev:server\""
-  }
+    "dev": "concurrently \"npm run dev:client\" \"npm run dev:server\"",
+    "publish": "npm publish --access public"
+  },
+  "description": "- Install dependencies",
+  "bin": "/bin/createReactExpressApp.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brucevilo1013/react-express-typescript-boilerplate.git"
+  },
+  "keywords": [
+    "react.js",
+    "express.js",
+    "typescript",
+    "boilerplate",
+    "bun"
+  ],
+  "author": "bruce vilo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brucevilo1013/react-express-typescript-boilerplate/issues"
+  },
+  "homepage": "https://github.com/brucevilo1013/react-express-typescript-boilerplate#readme"
 }
