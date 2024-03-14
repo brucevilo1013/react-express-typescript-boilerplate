@@ -1,11 +1,20 @@
 # react-express-typescript-boilerplate
+### To create a project, simply run
+  ```bash
+  npx create-vite-react-express <project-name>
+  ```
+
 ### How to set up, run
 - Install dependencies
 
-  ```npm run setup```
+  ```bash
+  npm run setup
+  ```
 - Run dev server
 
-  ```npm run dev```
+  ```bash
+  npm run dev
+  ```
 
 ### Used technologies
 

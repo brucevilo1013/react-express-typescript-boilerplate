@@ -1,20 +1,14 @@
-#!/usr/bin/env node typescript
+#!/usr/bin/env node
 
-/**
- *
- * Create app script
- * @todo update console log with chalk
- * */
-
-import util from 'util';
-import path from 'path';
-import fs from 'fs';
-import { execSync } from 'child_process';
+const {promisify} = require('util');
+const {join} = require('path');
+const {mkdirSync, copyFileSync, unlinkSync, rmdirSync} = require('fs');
+const {execSync} = require('child_process');
 
 // Utility functions
-const exec = util.promisify(require('child_process').exec);
+const exec = promisify(require('child_process').exec);
 
-async function runCmd(command: string) {
+async function runCmd(command) {
     try {
         const {stdout, stderr} = await exec(command);
         console.log(stdout);
@@ -37,22 +31,22 @@ async function hasYarn() {
 if (process.argv.length < 3) {
     console.log('Please specify the target project directory.');
     console.log('For example:');
-    console.log('    npx create-react-express-app my-app');
+    console.log('    npx create-vite-react-express my-app');
     console.log('    OR');
-    console.log('    npm init react-express-app my-app');
+    console.log('    npm init create-vite-react-express my-app');
     process.exit(1);
 }
 
 // Define constants
 const ownPath = process.cwd();
 const folderName = process.argv[2];
-const appPath = path.join(ownPath, folderName);
+const appPath = join(ownPath, folderName);
 const repo = 'https://github.com/brucevilo1013/react-express-typescript-boilerplate';
 
 // Check if directory already exists
 try {
-    fs.mkdirSync(appPath);
-} catch (err: any) {
+    mkdirSync(appPath);
+} catch (err) {
     if (err.code === 'EEXIST') {
         console.log('Directory already exists. Please choose another name for the project.');
     } else {
@@ -83,21 +77,21 @@ async function setup() {
         console.log('Dependencies installed successfully.');
 
         // Copy environment variables
-        fs.copyFileSync(path.join(appPath, 'client', '.env.example'), path.join(appPath, 'client', '.env'));
-        fs.copyFileSync(path.join(appPath, 'server', '.env.example'), path.join(appPath, 'server','.env'));
+        copyFileSync(join(appPath, 'client', '.env.example'), join(appPath, 'client', '.env'));
+        copyFileSync(join(appPath, 'server', '.env.example'), join(appPath, 'server', '.env'));
         console.log('Environment files copied.');
 
         // Delete .git folder
         await runCmd('npx rimraf ./.git');
 
         // Remove extra files
-        fs.unlinkSync(path.join(appPath, 'CHANGELOG.md'));
-        fs.unlinkSync(path.join(appPath, 'CODE_OF_CONDUCT.md'));
-        fs.unlinkSync(path.join(appPath, 'CONTRIBUTING.md'));
-        fs.unlinkSync(path.join(appPath, 'bin', 'createReactExpressApp.ts'));
-        fs.rmdirSync(path.join(appPath, 'bin'));
+        unlinkSync(join(appPath, 'CHANGELOG.md'));
+        unlinkSync(join(appPath, 'CODE_OF_CONDUCT.md'));
+        unlinkSync(join(appPath, 'CONTRIBUTING.md'));
+        unlinkSync(join(appPath, 'bin', 'createReactExpressApp.js'));
+        rmdirSync(join(appPath, 'bin'));
         if (!useYarn) {
-            fs.unlinkSync(path.join(appPath, 'yarn.lock'));
+            unlinkSync(join(appPath, 'yarn.lock'));
         }
 
         console.log('Installation is now complete!');
@@ -114,4 +108,4 @@ async function setup() {
     }
 }
 
-await setup();
+setup();

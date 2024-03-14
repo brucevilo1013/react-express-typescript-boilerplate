@@ -1,6 +1,6 @@
 {
   "name": "create-vite-react-express",
-  "version": "0.0.2",
+  "version": "0.0.5",
   "scripts": {
     "setup:client": "cd client & bun install",
     "setup:server": "cd server & bun install",
@@ -10,8 +10,8 @@
     "dev": "concurrently \"npm run dev:client\" \"npm run dev:server\"",
     "publish": "npm publish --access public"
   },
-  "description": "- Install dependencies",
-  "bin": "/bin/createReactExpressApp.ts",
+  "description": "Create react express app",
+  "bin": "bin/createReactExpressApp.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/brucevilo1013/react-express-typescript-boilerplate.git"
