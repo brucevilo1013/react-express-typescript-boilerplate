@@ -42,3 +42,7 @@
 ### References
 #### [Create react, typescript project using Vite, Bun](https://blog.logrocket.com/getting-started-bun-react/)
 #### [Create express, typescript sever](https://github.com/w3tecch/express-typescript-boilerplate)
+
+### Plans
+1. Configure CI/CD pipelines
+2. Containerize with docker, k8s
