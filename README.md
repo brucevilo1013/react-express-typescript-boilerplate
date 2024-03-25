@@ -1,4 +1,8 @@
 # react-express-typescript-boilerplate
+
+### Use case
+- Boilerplate with React, Express
+
 ### To create a project, simply run
   ```bash
   npx create-vite-react-express <project-name>
