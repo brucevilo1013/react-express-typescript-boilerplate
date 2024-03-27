@@ -8,7 +8,8 @@
     "dev:client": "cd client & npm run dev",
     "dev:server": "cd server & npm run serve",
     "dev": "concurrently \"npm run dev:client\" \"npm run dev:server\"",
-    "publish": "npm publish --access public"
+    "publish": "npm publish --access public",
+    "prepare": "husky"
   },
   "description": "Create react express app",
   "bin": "bin/createReactExpressApp.js",
@@ -28,5 +29,8 @@
   "bugs": {
     "url": "https://github.com/brucevilo1013/react-express-typescript-boilerplate/issues"
   },
-  "homepage": "https://github.com/brucevilo1013/react-express-typescript-boilerplate#readme"
+  "homepage": "https://github.com/brucevilo1013/react-express-typescript-boilerplate#readme",
+  "devDependencies": {
+    "husky": "^9.0.11"
+  }
 }
